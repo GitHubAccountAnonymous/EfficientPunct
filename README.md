@@ -7,7 +7,7 @@ Some familiarity with Kaldi is highly recommended for usage of the EfficientPunc
 ## Installation
 
 1. Install [Kaldi](https://kaldi-asr.org/) by following instructions [here](https://github.com/kaldi-asr/kaldi). Let the root Kaldi directory be referred to in the following documentation as `kaldi/`.
-2. Execute the commands:
+2. Run the following commands:
 ```bash
 cd kaldi/egs/tedlium
 git clone https://github.com/GitHubAccountAnonymous/EfficientPunct
@@ -15,6 +15,14 @@ mv EfficientPunct/* s5_r3/
 rm -rf EfficientPunct
 # The framework of EfficientPunct is now located in kaldi/egs/tedlium/s5_r3.
 cd s5_r3
-mkdir bert
 ```
-3. Download `bert.pt` from [this Google Drive link](https://drive.google.com/file/d/1qOpxTzSfyJjVHkoEXKoW0iq-NsZi4TpY/view?usp=share_link) and place it inside `kaldi/egs/tedlium/s5_r3/bert/`.
+3. Download an additional zip file from [this Google Drive link](https://drive.google.com/uc?id=17_kbtdBJrb-5vmivgU4L5QycWViXftRP) and place it inside `kaldi/egs/tedlium/s5_r3/`.
+4. Run the following commands:
+```bash
+unzip additional.zip
+rm additional.zip steps utils
+rm -r conf
+mv additional/* ./
+rm -r additional
+```
+
