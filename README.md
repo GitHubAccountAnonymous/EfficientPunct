@@ -8,11 +8,11 @@ Some familiarity with Kaldi is highly recommended for usage of the EfficientPunc
 
 1. Install [Kaldi](https://kaldi-asr.org/) by following instructions [here](https://github.com/kaldi-asr/kaldi). Let the root Kaldi directory be referred to in the following documentation as `kaldi/`.
 2. Execute the commands:
-```bash
-cd kaldi/egs/tedlium
-git clone https://github.com/GitHubAccountAnonymous/EfficientPunct
-mv EfficientPunct/* s5_r3/
-rm -rf EfficientPunct
-# The framework of EfficientPunct is now located in kaldi/egs/tedlium/s5_r3.
-cd s5_r3
-```
+  ```bash
+  cd kaldi/egs/tedlium
+  git clone https://github.com/GitHubAccountAnonymous/EfficientPunct
+  mv EfficientPunct/* s5_r3/
+  rm -rf EfficientPunct
+  # The framework of EfficientPunct is now located in kaldi/egs/tedlium/s5_r3.
+  cd s5_r3
+  ```
