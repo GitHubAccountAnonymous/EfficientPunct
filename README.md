@@ -26,3 +26,10 @@ mv additional/* ./
 rm -r additional
 ```
 
+From now on, we will refer to the `kaldi/egs/tedlium/s5_r3` directory as simply `s5_r3/`.
+
+## Data Preparation
+
+Depending on whether you're using data for training or inference, you should use either the `custom_train` and `custom_train_text` or `custom_predict` and `custom_predict_text` subdirectories, respectively. For example, `s5_r3/data` and `s5_r3/db` contain these subdirectories to separately hold each data split. In the following documentation, let `[split]` be either `train` or `predict`, depending on your situation.
+
+- Place each utterance's audio (`.wav` files) in `kaldi/egs/tedlium/s5_r3/db/custom_[split]`. The filename should be of the format `[utterance-id].wav`, where `[utterance-id]` is a unique identifier for the utterance.
