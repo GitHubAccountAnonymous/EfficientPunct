@@ -49,6 +49,12 @@ This data preparation process is exactly the same as according to Kaldi's guidan
 
 To run either script, you will need to prepare the corresponding data `[split]` according to the Data Preparation section. These scripts include both the embedding extraction and TDNN forward passing stages. Trained TDNNs and their evaluation results are saved in `s5_r3/tdnn/`.
 
+Run the scripts using Bash:
+```bash
+./train.sh
+./predict.sh
+```
+
 To evaluate the ensemble, please use `ensemble_predict.py`.
 
 ## Models
