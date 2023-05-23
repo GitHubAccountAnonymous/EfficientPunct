@@ -80,7 +80,7 @@ class PREvaluation():
         self.load_model(model_path)
         
         self.data = PRPredictDataset()
-        self.loader = DataLoader(self.data, batch_size=self.batch_size, num_workers=16, shuffle=False)
+        self.loader = DataLoader(self.data, batch_size=self.batch_size, num_workers=2, shuffle=False)
 
 
     def load_model(self, model_path):

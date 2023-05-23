@@ -213,7 +213,7 @@ def train(load_model=None):
     optimizer = optim.SGD(model.parameters(), lr=0.00001, momentum=0.9)
     
     train_data = PRTrainDataset()
-    train_loader = DataLoader(train_data, batch_size=batch_size, num_workers=12, shuffle=True)
+    train_loader = DataLoader(train_data, batch_size=batch_size, num_workers=2, shuffle=True)
     
     epochs = 25
     for epoch in range(0, epochs):
