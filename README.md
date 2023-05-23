@@ -20,7 +20,7 @@ cd s5_r3
 4. Run the following commands:
 ```bash
 unzip additional.zip
-rm additional.zip steps utils
+rm additional.zip cmd.sh steps utils
 rm -r conf
 mv additional/* ./
 rm -r additional
@@ -35,6 +35,8 @@ Depending on whether you're using data for training or inference, you should use
 - Place each utterance's audio (`.wav` files) in `s5_r3/db/custom_[split]`. Each filename should be of the format `[utterance-id].wav`. 
 - Place each utterance's text (`.txt` files) in `s5_r3/db/custom_[split]_text`. Each filename should be of the format `[utterance-id].txt`, and each file should simply contain a single line with the utterance's transcription.
 - Create `s5_r3/data/custom_[split]/utt2spk`, a text file with one line for each utterance, and each line should be of the format `[utterance-id] [spk-id]`.
+- Create `s5_r3/data/custom_[split]/wav.scp`, a text file with one line for each utterance, and each line should be of the format `[utterance-id] [fully-qualified-path-to-utterance's-wav-file]`.
+
 Here,
 - `[utterance-id]` is a unique identifier for the utterance.
 - `[spk-id]` is the speaker ID. This should be unique for each speaker.
