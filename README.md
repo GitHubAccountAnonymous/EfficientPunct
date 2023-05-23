@@ -40,3 +40,11 @@ Depending on whether you're using data for training or inference, you should use
 Here,
 - `[utterance-id]` is a unique identifier for the utterance.
 - `[spk-id]` is the speaker ID. This should be unique for each speaker.
+
+This data preparation process is exactly the same as according to Kaldi's guidance. Thus, if you run into issues, you may consult [https://kaldi-asr.org/doc/data_prep.html](https://kaldi-asr.org/doc/data_prep.html).
+
+## Scripts
+
+`train.sh` and `predict.sh` are full scripts to train and predict using our framework, respectively, from start to finish. To run either script, you will need to prepare the corresponding data `[split]` according to the Data Preparation section. These scripts include both the embedding extraction and TDNN forward passing stages. Trained TDNNs and their evaluation results are saved in `s5_r3/tdnn/`.
+
+To evaluate the ensemble, please use `ensemble_predict.py`.
