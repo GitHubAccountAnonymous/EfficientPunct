@@ -6,28 +6,13 @@
 
 set -e -o pipefail -u
 
-nj=16
-decode_nj=16   # note: should not be >38 which is the number of speakers in the dev set
+nj=1
+decode_nj=1   # note: should not be >38 which is the number of speakers in the dev set
                # after applying --seconds-per-spk-max 180.  We decode with 4 threads, so
                # this will be too many jobs if you're using run.pl.
-stage=0
+stage=1
 
 . utils/parse_options.sh # accept options
-
-
-if [ $stage -le 0 ]; then
-  echo "===================="
-  echo "Stage 0 starting"
-  mkdir data/custom_predict
-  mkdir db/custom_predict
-  mkdir db/custom_predict_text
-  # python3 parse_singapore_txtwav.py ~/imda_national_speech_corpus/
-  python3 parse_unipunc_txtwav.py test
-  ./custom_predict_extract_audio.sh
-  echo "Stage 0 ending"
-  echo ""
-fi
-
 
 if [ $stage -le 1 ]; then
 
@@ -129,37 +114,9 @@ if [ $stage -le 6 ]; then
   echo ""
 fi
 
-
-# if [ $stage -le 7 ]; then
-#   echo "===================="
-#   echo "Stage 7 starting"
-#   # echo "Applying LDA transformation"
-#   if [ -d "embed_custom_predict/512" ]
-#   then
-#     rm -r embed_custom_predict/512
-#   fi
-#   mkdir embed_custom_predict/512
-
-#   for dirfile in embed_custom_predict/1792/embed*.scp
-#   do
-#     scp=${dirfile:26:-4}
-
-#     if [ $scp != "embed" ]
-#     then
-#       transform-vec embed_custom_train/lda/lda.mat \
-#         scp:embed_custom_predict/1792/$scp.scp \
-#         ark,scp:embed_custom_predict/512/$scp.ark,embed_custom_predict/512/$scp.scp
-#     fi
-#   done
-
-#   echo "Stage 7 ending"
-#   echo ""
-# fi
-
-
-if [ $stage -le 8 ]; then
+if [ $stage -le 7 ]; then
   echo "===================="
-  echo "Stage 8 starting"
+  echo "Stage 7 starting"
   if [ -d "embed_custom_predict/512/egs" ] 
   then
     rm -r embed_custom_predict/1792/egs
@@ -173,12 +130,9 @@ if [ $stage -le 8 ]; then
   mkdir embed_custom_predict/1792/egs_txt
 
   python3 prepare_egs.py custom_predict 1792
-  echo "Stage 8 ending"
+  echo "Stage 7 ending"
   echo ""
 fi
-
-exit 1
-
 
 if [ $stage -le 8 ]; then
   echo "===================="
