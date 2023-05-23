@@ -45,6 +45,12 @@ This data preparation process is exactly the same as according to Kaldi's guidan
 
 ## Scripts
 
-`train.sh` and `predict.sh` are full scripts to train and predict using our framework, respectively, from start to finish. To run either script, you will need to prepare the corresponding data `[split]` according to the Data Preparation section. These scripts include both the embedding extraction and TDNN forward passing stages. Trained TDNNs and their evaluation results are saved in `s5_r3/tdnn/`.
+`train.sh` and `predict.sh` are full scripts to train and predict using our framework, respectively, from start to finish. They are both structured in stages, removing the need to run already completed stages if a later stage fails. This is structured in the same fashion as Kaldi scripts. Crucially, the final stage in each of `train.sh` and `predict.sh` calls `tdnn_train.py` and `tdnn_predict.py`, respectively.
+
+To run either script, you will need to prepare the corresponding data `[split]` according to the Data Preparation section. These scripts include both the embedding extraction and TDNN forward passing stages. Trained TDNNs and their evaluation results are saved in `s5_r3/tdnn/`.
 
 To evaluate the ensemble, please use `ensemble_predict.py`.
+
+## Models
+
+We provide pretrained models `bert/bert.pt` and `tdnn/tdnn.pt` so that you do not have to re-train everything from scratch. By default, `tdnn_predict.py` and `ensemble_predict.py` both use these models, but you may alter the code to use your custom model.
