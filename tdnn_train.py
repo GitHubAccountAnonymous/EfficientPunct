@@ -1,4 +1,4 @@
-from helper import list_non_hidden, run_bash
+from helper import list_non_hidden
 import numpy as np
 import pickle
 import random
@@ -238,14 +238,12 @@ def train(load_model=None):
                       "| Processing data", data_count, "/", len(train_data),
                       "| Loss/sample:", float(loss) / batch_size)
                 if i % 100000 == 0:
-                    torch.save(model.state_dict(), "tdnn_mod/model.pt")
+                    torch.save(model.state_dict(), "tdnn/model.pt")
             
             loss.backward()
             optimizer.step()
             
-        torch.save(model.state_dict(), 'tdnn_mod/tdnn-epoch' + str(epoch+1) + '.pt')
-        run_bash('scp -r tdnn_mod/tdnn-epoch' + str(epoch+1) + '.pt ' + \
-                 'liuxingyi99@34.138.70.6:~/kaldi/egs/tedlium/s5_r3/tdnn_mod/attempt1/')
+        torch.save(model.state_dict(), 'tdnn/tdnn-epoch' + str(epoch+1) + '.pt')
         print('')
         print('**************************************************************')
         print('Epoch ' + str(epoch+1) + ' loss:', total_loss)

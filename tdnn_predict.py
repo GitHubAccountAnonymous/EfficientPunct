@@ -1,7 +1,7 @@
 from helper import list_non_hidden
 import numpy as np
 import pickle
-from tdnn_train_11 import PR
+from tdnn_train import PR
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
@@ -261,8 +261,7 @@ class PREvaluation():
 
 
 if __name__ == '__main__':
-    for i in range(2, 3):
-        evaluation = PREvaluation('tdnn_mod/tdnn-11/tdnn-epoch' + str(i) + '.pt')
-        prf1, count = evaluation.predict()
+    evaluation = PREvaluation('tdnn/model.pt')
+    prf1, count = evaluation.predict()
         
         
