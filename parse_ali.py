@@ -527,7 +527,7 @@ def concat_embed():
     
     
     # Getting BERT model
-    bert_model_path = 'bert_model_mod/adapt_unipunc_mod/unipunc-adapt-epoch2-best.pt'
+    bert_model_path = 'bert/bert.pt'
     bert_model = BERTFineTuneForPunct()
     if torch.cuda.is_available() and 'cuda' in device:
         bert_model.load_state_dict(torch.load(bert_model_path))
