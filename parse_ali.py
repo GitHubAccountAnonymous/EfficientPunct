@@ -40,7 +40,7 @@ word2int = {line[0]:int(line[1]) for line in wordints}
     
 
 if dataset == 'singapore':
-    all_text = load_pkl('dataset_mod/singapore_scripts.pkl')
+    all_text = load_pkl('dataset/singapore_scripts.pkl')
 
 
 

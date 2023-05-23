@@ -332,11 +332,6 @@ class PREvaluation():
 
 
 if __name__ == '__main__':
-    evaluation = PREvaluation('tdnn_mod/tdnn-7/tdnn-epoch3.pt', 'bert_model_mod/adapt_unipunc_mod/unipunc-adapt-epoch2-best.pt')
+    evaluation = PREvaluation('tdnn/model.pt', 'bert/bert.pt')
     prf1, count = evaluation.predict()
-    
-    # for i in range(1, 2):
-    #     evaluation = PREvaluation('tdnn_mod/attempt10/tdnn-epoch' + str(i) + '.pt')
-    #     prf1, count = evaluation.predict()
-        
         

@@ -137,9 +137,9 @@ if [ $stage -le 8 ]; then
   echo "===================="
   echo "Stage 8 starting"
   # Training TDNN
-  if [ ! -d "tdnn_mod" ]
+  if [ ! -d "tdnn" ]
   then
-    mkdir tdnn_mod
+    mkdir tdnn
   fi
   nohup python3 -u tdnn_train.py > tdnn_train.log &
   echo "See main TDNN training log in tdnn_train.log"

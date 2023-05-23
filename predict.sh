@@ -137,8 +137,8 @@ fi
 if [ $stage -le 8 ]; then
   echo "===================="
   echo "Stage 8 starting"
-  model=tdnn-epoch1-part5
-  nohup python3 -u tdnn_predict.py tdnn_mod/$model.pt > tdnn_mod/$model.txt &
+  model=model
+  nohup python3 -u tdnn_predict.py tdnn/$model.pt > tdnn/$model.txt &
   echo "Stage 8 ending"
   echo ""
 fi
