@@ -16,7 +16,7 @@ rm -rf EfficientPunct
 # The framework of EfficientPunct is now located in kaldi/egs/tedlium/s5_r3.
 cd s5_r3
 ```
-3. Download an additional zip file from [this Google Drive link](https://drive.google.com/file/d/1C1IuJsrL8l0ekCy_eXGit1_lMnrkHScu/view?usp=share_link) and place it inside `kaldi/egs/tedlium/s5_r3/`.
+3. Download an additional zip file from [this Google Drive link](https://drive.google.com/file/d/1CrBgWyZEI9xDG3OBsFUtL_jAKhxv1_MS/view?usp=share_link) and place it inside `kaldi/egs/tedlium/s5_r3/`.
 4. Run the following commands:
 ```bash
 unzip additional.zip
